@@ -41,13 +41,13 @@ class App extends Component {
   initializeData = () => {
     let rootRef = firebase.database().ref().child('/');
     let logsRef = rootRef.child('logs').limitToLast(10);
-    logsRef.once('value', snap => {
+    logsRef.on('value', snap => {
       snap.forEach(log => {
         let logVal = log.val();
         this.setState({
           logs: [
             logVal,
-            ...this.state.logs
+             ...this.state.logs
           ]
         })
       })
@@ -63,15 +63,9 @@ class App extends Component {
     logs.push(log);
   }
 
-  handleLog = a => {
-    let equation = this.state.input + '=' +a;
+  handleLog = answer => {
+    let equation = this.state.input + '=' +answer;
     let newId = uuid();
-    this.setState({
-      logs: [
-        ...this.state.logs,
-        {id: newId, eq: equation}
-      ]
-    })
     this.writeDataToDb(newId, equation);
   }
 
@@ -110,6 +104,14 @@ class App extends Component {
         input: this.state.input + value
       });
       
+    }
+  }
+
+  handleLongInput = input => {
+    let length = input.length;
+    if (length > 15) {
+      let cut = input.length - 15;
+      console.log(input.slice(cut))
     }
   }
 

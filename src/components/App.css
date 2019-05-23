@@ -4,18 +4,35 @@ html, body, pre, code, kbd, samp {
   font-family: 'Press Start 2P', cursive;
 }
 
-/* body {
-  background-image: url(https://wallpaperaccess.com/full/556521.jpg);
-} */
+body {
+  margin: 0;
+  padding: 0;
+  background: pink;
+}
 
 .app {
-  display: flex;
-  flex-direction: row;
+  width: 100%;
+  max-width: 600px;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+}
+
+.header-text {
+  /* width: 380px; */
+  max-width: 100%;
+  min-width: 370px;
+  display: inline-block;
+  margin: 20px 0 20px 7px !important;
 }
 
 .calculator {
-  display: flex;
-  flex-direction: column;
+  display: inline-block;
+  position: relative;
+  left: calc(50% - 185px);
   width: 370px;
   background-color: aquamarine;
 }
@@ -43,6 +60,9 @@ html, body, pre, code, kbd, samp {
   padding-bottom: 1em;
 }
 
-/* .log {
-  background-color: white;
-} */
+.log {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #f1f1f1
+}

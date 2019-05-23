@@ -2,7 +2,7 @@
  import './Header.css'
 
  export const Header = () => (
-  <div className="nes-container is-rounded is-dark">
-    <p className="header-text">CALCUTRON</p>
+  <div className="header-text nes-container is-rounded is-dark is-centered">
+    <p>CALCUTRON</p>
   </div>
  )
