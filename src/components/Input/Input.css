@@ -1,0 +1,6 @@
+p {
+  width: 238px;
+  overflow-x: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}

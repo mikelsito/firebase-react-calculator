@@ -1,0 +1,48 @@
+@import '~nes.css/css/nes.css';
+
+html, body, pre, code, kbd, samp {
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* body {
+  background-image: url(https://wallpaperaccess.com/full/556521.jpg);
+} */
+
+.app {
+  display: flex;
+  flex-direction: row;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  width: 370px;
+  background-color: aquamarine;
+}
+
+.input {
+  order: 0;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.square-btns {
+  flex-wrap: wrap;
+  order: 1;
+  justify-content: space-between;
+}
+
+.square-btns>* {
+  margin: .5em .5em .5em .5em; 
+  padding: 1em 1.2em 1em 1.2em;
+}
+
+.clear {
+  order: 2;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+/* .log {
+  background-color: white;
+} */
