@@ -83,7 +83,6 @@ class App extends Component {
       log.push(sortedLogs[i][1].id);
       tenLogsSorted.push(log)
     }
-    console.log(tenLogsSorted)
     this.setState({
       list: tenLogsSorted
     })
