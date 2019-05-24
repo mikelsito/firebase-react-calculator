@@ -3,6 +3,6 @@
 
  export const Header = () => (
   <div className="header-text nes-container is-rounded is-dark is-centered">
-    <p>CALCUTRON</p>
+    <p>CALCULATRON</p>
   </div>
  )
