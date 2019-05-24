@@ -66,9 +66,9 @@ class App extends Component {
   }
 
   // take db object and update app state
-  tenMostRecentLogs = obj => {
+  tenMostRecentLogs = logsObj => {
     // make array of all logs
-    const logs = Object.entries(obj);
+    const logs = Object.entries(logsObj);
     // create array of all logs sorted by timestamp
     const sortedLogs = logs.sort((a,b) => (a.timestamp < b.timestamp) ? 1 : -1)
     // create an array of ten most recent posted logs
