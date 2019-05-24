@@ -61,7 +61,8 @@ class App extends Component {
       this.setState({
         logs: snapshot.val()
       });
-      return this.tenMostRecentLogs(this.state.logs)
+      // call function to make array of 10 most recent for list
+      return this.tenMostRecentLogs(snapshot.val())
     }, function (errorObject) {
       return console.log("The read failed: " + errorObject.code);
     })
@@ -83,7 +84,6 @@ class App extends Component {
       log.push(sortedLogs[i][1].id);
       tenLogsSorted.push(log)
     }
-    console.log(tenLogsSorted)
     this.setState({
       list: tenLogsSorted
     })
