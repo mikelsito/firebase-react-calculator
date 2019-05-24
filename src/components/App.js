@@ -78,7 +78,10 @@ class App extends Component {
     // create an array of ten most recent posted logs
     let tenLogsSorted = [];
     for (let i=0;i<10;i++) {
-      tenLogsSorted.push(sortedLogs[i][1].eq);
+      let log = [];
+      log.push(sortedLogs[i][1].eq);
+      log.push(sortedLogs[i][1].id);
+      tenLogsSorted.push(log)
     }
     console.log(tenLogsSorted)
     this.setState({
