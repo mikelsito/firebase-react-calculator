@@ -40,9 +40,7 @@ class App extends Component {
       // display is for the calculator screen
       display: '...',
       // stores all logs from db
-      logs: {},
-      // Make a list for 10 recent posts
-      list: []
+      logs: {}
     }
 }
 
@@ -62,7 +60,6 @@ class App extends Component {
         logs: snapshot.val()
       });
       // call function to make array of 10 most recent for list
-      return this.tenMostRecentLogs(snapshot.val())
     }, function (errorObject) {
       return console.log("The read failed: " + errorObject.code);
     })
@@ -71,22 +68,13 @@ class App extends Component {
   // take db object and update app state
   tenMostRecentLogs = obj => {
     // make array of all logs
-    const logs = [
-      Object.entries(obj)
-    ];
+    const logs = Object.entries(obj);
     // create array of all logs sorted by timestamp
-    const sortedLogs = logs[0].sort((a,b) => (a.timestamp < b.timestamp) ? 1 : -1)
+    const sortedLogs = logs.sort((a,b) => (a.timestamp < b.timestamp) ? 1 : -1)
     // create an array of ten most recent posted logs
-    let tenLogsSorted = [];
-    for (let i=0;i<10;i++) {
-      let log = [];
-      log.push(sortedLogs[i][1].eq);
-      log.push(sortedLogs[i][1].id);
-      tenLogsSorted.push(log)
-    }
-    this.setState({
-      list: tenLogsSorted
-    })
+    const tenLogsSorted = sortedLogs.slice(0,9);
+    // Return sorted array
+    return tenLogsSorted;
   }
 
   writeDataToDb = (uuid, eq) => {
@@ -220,7 +208,7 @@ class App extends Component {
             
         </div>
         <div className='log'>
-          <Log logs={this.state.list}/>
+          <Log logs={this.tenMostRecentLogs(this.state.logs)}/>
         </div>
       </div>
     );
